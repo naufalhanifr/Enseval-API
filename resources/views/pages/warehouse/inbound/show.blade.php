@@ -13,17 +13,20 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>Tanggal Masuk</th>
                                 <th>Product</th>
                                 <th>Warehouse</th>
+                                <th>Asal Barang</th>
                                 <th>Cost</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $item->product_id }}</td>
-                                <td>{{ $item->warehouse_id }}</td>
-                                <td>{{ $item->cost }}</td>
+                                <td>{{ $data->in_date }}</td>
+                                <td>{{ $data->product_id }}</td>
+                                <td>{{ $data->warehouse_id }}</td>
+                                <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->cost }}</td>
                                 <td>
                             </tr>
                         </tbody>

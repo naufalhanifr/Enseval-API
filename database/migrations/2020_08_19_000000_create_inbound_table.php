@@ -16,6 +16,8 @@ class CreateInboundTable extends Migration
         Schema::create('inbound', function (Blueprint $table) {
             $table->id();
             $table->integer('cost');
+            $table->string('in_date');
+            $table->string('delivery_id');
             $table->foreignId('product_id')->constrained('product')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('warehouse_id')->constrained('warehouse')->cascadeOnUpdate()->cascadeOnDelete();
             // $table->dateTime('date_inbound');

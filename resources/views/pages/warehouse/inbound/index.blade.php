@@ -31,8 +31,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Tanggal Masuk</th>
                                 <th>Product</th>
                                 <th>Warehouse</th>
+                                <th>Asal Barang</th>
                                 <th>Cost</th>
                                 <th>Aksi</th>
                             </tr>
@@ -41,8 +43,10 @@
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->in_date }}</td>
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->warehouse->location }}</td>
+                                <td>{{ $item->delivery_id }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>
                                     <a class=" btn btn-sm btn-warning" href="{{ route('warehouse.inbound.show', $item->id) }}"><i class="fas fa-eye"></i></a>

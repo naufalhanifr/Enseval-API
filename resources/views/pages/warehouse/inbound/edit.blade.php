@@ -11,6 +11,12 @@
                 @csrf
                 @method('patch')
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="in_date" class=" form-control-label">Tanggal Masuk</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="date" name="in_date" id="in_date" cols="30" rows="5" class="form-control" placeholder="Tanggal Masuk" value="{{ $data->in_date ?? old('in_date')}}"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3"><label for="product_id" class=" form-control-label">Product</label></div>
                     <div class="col-12 col-md-9">
                         <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Product" value="{{ $data->product_id ?? old('product_id')}}">
@@ -25,9 +31,15 @@
 
                 </div>
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Asal Barang</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control" placeholder="Asal Barang" value="{{ $data->delivery_id ?? old('delivery_id')}}"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3"><label for="cost" class=" form-control-label">Cost</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control" placeholder="Cost" value="{{ $data->cost ?? old('cost')}}"></input>
+                        <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control" placeholder="Cost" value="{{ $data->cost ?? old('cost')}}"></input>
                     </div>
                 </div>
                 <div class="form-group">

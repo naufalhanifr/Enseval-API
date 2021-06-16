@@ -10,6 +10,12 @@
             <form action="{{ route('warehouse.inbound.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="in_date" class=" form-control-label">Tanggal Masuk</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="date" name="in_date" id="in_date" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3">
                         <label for="product_id" class=" form-control-label">Product</label>
                     </div>
@@ -35,11 +41,16 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Asal Barang</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="cost" class=" form-control-label">Cost</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                        <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="form-group">
