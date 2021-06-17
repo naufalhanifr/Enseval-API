@@ -15,21 +15,16 @@ class Delivery extends Model
 
     public function driver()
     {
-        return $this->belongsTo(Driver::class);
+        return $this->belongsTo('App\Models\Driver');
     }
-
-    // public function customer()
-    // {
-    //     return $this->belongsToMany(Customer::class);
-    // }
 
     public function product()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsTo('App\Models\Product');
     }
 
     public function vehicle()
     {
-        return $this->belongsTo(Vehicle::class);
+        return $this->belongsTo('App\Models\Vehicle');
     }
 }

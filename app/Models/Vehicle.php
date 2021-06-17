@@ -29,8 +29,8 @@ class Vehicle extends Model
     protected $table = "vehicle";
     protected $guarded = [];
 
-    public function deliveries()
+    public function delivery()
     {
-        return $this->hasMany(Delivery::class);
+        return $this->hasMany('App\Models\Logistics\Delivery');
     }
 }

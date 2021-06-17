@@ -46,10 +46,11 @@
                         <tbody>
                             @foreach ($data as $item)
                             <tr>
-                                <td>{{ $loop->delivery_type }}</td>
-                                <td>{{ $item->driver_id }}</td>
-                                <td>{{ $item->product_id }}</td>
-                                <td>{{ $item->vehicle_id}}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->delivery_type}}</td>
+                                <td>{{ $item->product->name }}</td>
+                                <td>{{ $item->vehicle->type}}</td>
+                                <td>{{ $item->driver->name }}</td>
                                 <td>{{ $item->date_pickup }}</td>
                                 <td>{{ $item->pickup_location }}</td>
                                 <td>{{ $item->destination_location }}</td>

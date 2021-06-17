@@ -7,7 +7,7 @@
             <h4 class="card-title text-primary ">Tambah Product</h4>
         </div>
         <div class="card-body">
-            <form action="{{ route('logistik.product.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('logistik.delivery.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="delivery_type" class=" form-control-label">Delivery Type</label>
@@ -15,15 +15,15 @@
                     <div class="col-12 col-md-9">
                         <select name="delivery_type" class="form-control ">
                             <option value=""> Pilih Delivery --</option>
-                            <option value="1">Pengiriman</option>
-                            <option value="2">Penjualan</option>
+                            <option value="Pengiriman">Pengiriman</option>
+                            <option value="Penjualan">Penjualan</option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="driver_id" class=" form-control-label">Product</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="driver_id" class="form-control ">
+                        <select name="product_id" class="form-control ">
                             <option value=""> Pilih Product --</option>
                             @foreach($product as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -72,9 +72,9 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="fuel_consumption " class=" form-control-label">Fuel Consumption</label></label></div>
+                    <div class="col col-md-3"><label for="fuel_consumption" class=" form-control-label">Fuel Consumption</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="text" name="fuel_consumption " id="fuel_consumption " cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="fuel_consumption" id="fuel_consumption" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="row form-group">
