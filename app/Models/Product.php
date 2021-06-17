@@ -17,10 +17,20 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Warehouse\Inbound');
     }
+
+
     public function outbound()
     {
         return $this->hasMany('App\Models\Warehouse\Outbound');
     }
+
+
+    public function stock()
+    {
+        return $this->hasMany('App\Models\Warehouse\Stock');
+    }
+
+    
     public function delivery()
     {
         return $this->hasMany('App\Models\Logistics\Delivery');

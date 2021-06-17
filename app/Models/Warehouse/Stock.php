@@ -11,8 +11,13 @@ class Stock extends Model
     protected $table = "stock";
     protected $guarded = [];
 
+    public function warehouse()
+    {
+        return $this->belongsTo('App\Models\Warehouse\Warehouse');
+    }
+
     public function product()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsTo('App\Models\Product');
     }
 }

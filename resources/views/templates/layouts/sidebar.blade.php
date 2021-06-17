@@ -27,8 +27,8 @@
                 <a class="collapse-item" href="{{ route('logistik.driver.index') }}">Driver</a>
                 <a class="collapse-item" href="{{ route('logistik.vehicle.index') }}">Vehicle</a>
                 <a class="collapse-item" href="{{ route('logistik.product.index') }}">Product</a>
-                <a class="collapse-item" href="{{ route('logistik.tracking.index') }}">Tracking</a>
                 <a class="collapse-item" href="{{ route('logistik.delivery.index') }}">Delivery</a>
+                <a class="collapse-item" href="{{ route('logistik.tracking.index') }}">Tracking</a>
             </div>
         </div>
     </li>
@@ -41,6 +41,7 @@
         <div id="collapseWarehouse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('warehouse.warehouse.index') }}">Warehouse</a>
+                <a class="collapse-item" href="{{ route('warehouse.operational.index') }}">Operational</a>
                 <a class="collapse-item" href="{{ route('warehouse.maintenance.index') }}">Maintenance</a>
                 <a class="collapse-item" href="{{ route('warehouse.stock.index') }}">Stock</a>
                 <a class="collapse-item" href="{{ route('warehouse.inbound.index') }}">Inbound</a>

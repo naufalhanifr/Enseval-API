@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Warehouse\Stock;
+use App\Models\Warehouse\Warehouse;
+use App\Models\Product;
+
 class StockController extends Controller
 {
     /**
@@ -15,8 +19,10 @@ class StockController extends Controller
      */
     public function index()
     {
+        $data = Stock::with('product', 'warehouse')->get();
         return view('pages.warehouse.stock.index', [
-            'title' => 'Warehouse'
+            'title' => 'Stock',
+            'data' => $data
         ]);
     }
 
@@ -27,7 +33,13 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::all();
+        $warehouse = Warehouse::all();
+        return view('pages.warehouse.stock.create', [
+            'title' => 'Stock',
+            'product' => $product,
+            'warehouse' => $warehouse,
+        ]);
     }
 
     /**
@@ -38,7 +50,16 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'quantity' => ['required'],
+            'product_id' => ['required'],
+            'warehouse_id' => ['required'],
+        ]);
+
+        $stock = $request->all();
+        Stock::create($stock);
+
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Ditambah.');
     }
 
     /**
@@ -49,7 +70,13 @@ class StockController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = stock::findOrFail($id);
+
+
+        return view('pages.warehouse.stock.show', [
+            'title' => 'Detail stock',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -60,7 +87,16 @@ class StockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = stock::findOrFail($id);
+        $product = Product::all();
+        $warehouse = Warehouse::all();
+
+        return view('pages.warehouse.stock.edit', [
+            'title' => 'Detail stock',
+            'data' => $data,
+            'product' => $product,
+            'warehouse' => $warehouse
+        ]);
     }
 
     /**
@@ -72,7 +108,16 @@ class StockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $stock = stock::findOrFail($id);
+        $request->validate([
+            'quantity' => ['required'],
+            'product_id' => ['required'],
+            'warehouse_id' => ['required'],
+        ]);
+
+        $data = $request->all();
+        $stock->update($data);
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Di update');
     }
 
     /**
@@ -83,6 +128,8 @@ class StockController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $stock = stock::findOrFail($id);
+        $stock->delete();
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Di hapus');
     }
 }

@@ -113,8 +113,8 @@ class OperationalController extends Controller
         ]);
 
         $data = $request->all();
-        $Operational->update($data);
-        return redirect()->route('warehouse.operational.index')->with('success', 'Operational Berhasil Di update'); 
+        $Operatioanl->update($data);
+        return redirect()->route('warehouse.operational.index')->with('success', 'Operational Berhasil Di update');
     }
 
     /**
