@@ -47,8 +47,8 @@
                                 <td>{{ $item->outbound_id}}</td>
                                 <td>{{ $item->expense_id}}</td>
                                 <td>
-                                    <a class=" btn btn-sm btn-warning" href="{{ route('warehouse.operational.show', $item->id) }}"><i class="fas fa-eye"></i></a>
-                                    <form action="{{ route('warehouse.operational.destroy', $item->id) }}" method="post" class="d-inline">
+                                    <a " class=" btn btn-sm btn-warning"><i class="fas fa-eye"></i></a>
+                                    <form method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>

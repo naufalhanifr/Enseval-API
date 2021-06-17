@@ -1,1 +1,0 @@
-sudo . /var/www/html/ -r

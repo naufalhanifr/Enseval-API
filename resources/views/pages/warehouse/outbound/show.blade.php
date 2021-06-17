@@ -15,14 +15,8 @@
                             <tr>
                                 <th>Tanggal Keluar</th>
                                 <th>Product</th>
-
                                 <th>Lokasi Asal Barang</th>
                                 <th>Lokasi Pengantaran Barang</th>
-=======
-                                <th>Warehouse</th>
-                                <th>Jenis Kendaran</th>
-                                <th>Alamat Pengiriman </th>
-
                                 <th>Jumlah Barang Keluar</th>
                                 <th>Biaya</th>
                             </tr>
@@ -31,14 +25,8 @@
                             <tr>
                                 <td>{{ $data->out_date }}</td>
                                 <td>{{ $data->product->name }}</td>
-
                                 <td>{{ $data->delivery->pickup_location }}</td>
                                 <td>{{ $data->delivery->destination_location }}</td>
-
-                                <td>{{ $data->warehouse->location }}</td>
-                                <td>{{ $data->vehicle->type }}</td>
-                                <td>{{ $data->delivery_id }}</td>
-
                                 <td>{{ $data->quantity_out }}</td>
                                 <td>{{ $data->cost }}</td>
                             </tr>

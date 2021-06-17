@@ -8,11 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Warehouse\Outbound;
 use App\Models\Warehouse\Warehouse;
 use App\Models\Product;
-<<<<<<< HEAD
 use App\Models\Logistics\Delivery;
-=======
-use App\Models\vehicle;
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
 
 
 class OutboundController extends Controller
@@ -39,14 +35,12 @@ class OutboundController extends Controller
     public function create()
     {
         $product = Product::all();
-        $vehicle = Vehicle::all();
         $warehouse = Warehouse::all();
         $data = outbound::all();
         $delivery = Delivery::get();
         return view('pages.warehouse.outbound.create', [
             'title' => 'Warehouse',
             'product' => $product,
-            'vehicle' => $vehicle,
             'warehouse' => $warehouse,
             'delivery' => $delivery,
         ]);
@@ -63,17 +57,12 @@ class OutboundController extends Controller
         $request->validate([
             'cost' => ['required'],
             'product_id' => ['required'],
-<<<<<<< HEAD
-=======
-            'vehicle_id' => ['required'],
-            'warehouse_id' => ['required'],
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
         ]);
 
         $outbound = $request->all();
         outbound::create($outbound);
 
-        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Ditambah.');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Ditambah.');
     }
 
     /**
@@ -101,27 +90,15 @@ class OutboundController extends Controller
     public function edit($id)
     {
         $data = outbound::findOrFail($id);
-<<<<<<< HEAD
         $delivery = Delivery::get();
         $product = Product::all();
-=======
-        $product = Product::all();
-        $warehouse = Warehouse::all();
-        $vehicle = vehicle::all();
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
 
         return view('pages.warehouse.outbound.edit', [
             'title' => 'Detail outbound',
             'data' => $data,
-<<<<<<< HEAD
 
             'product' => $product,
             'delivery' => $delivery,
-=======
-            'product' => $product,
-            'warehouse' => $warehouse,
-            'vehicle' => $vehicle
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
         ]);
     }
 
@@ -137,17 +114,11 @@ class OutboundController extends Controller
         $outbound = outbound::findOrFail($id);
         $request->validate([
             'cost' => ['required'],
-<<<<<<< HEAD
-=======
-            'vehicle_id' => ['required'],
-            'product_id' => ['required'],
-            'warehouse_id' => ['required']
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
         ]);
 
         $data = $request->all();
         $outbound->update($data);
-        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Di update');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Di update');
     }
 
     /**
@@ -160,6 +131,6 @@ class OutboundController extends Controller
     {
         $outbound = outbound::findOrFail($id);
         $outbound->delete();
-        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Di hapus');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Di hapus');
     }
 }

@@ -27,20 +27,14 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable " width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Tanggal Keluar</th>
                                 <th>Product</th>
-<<<<<<< HEAD
                                 <th>Lokasi Asal Barang</th>
                                 <th>Lokasi Pengantaran Barang</th>
-=======
-                                <th>Warehouse</th>
-                                <th>Vehicle</th>
-                                <th>Alamat Pengiriman</th>
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
                                 <th>Jumlah Barang Keluar</th>
                                 <th>Biaya</th>
                                 <th>Aksi</th>
@@ -52,14 +46,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->out_date }}</td>
                                 <td>{{ $item->product->name }}</td>
-<<<<<<< HEAD
                                 <td>{{ $item->delivery->pickup_location }}</td>
                                 <td>{{ $item->delivery->destination_location }}</td>
-=======
-                                <td>{{ $item->warehouse->location }}</td>
-                                <td>{{ $item->vehicle->type }}</td>
-                                <td>{{ $item->delivery_id }}</td>
->>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
                                 <td>{{ $item->quantity_out }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>
