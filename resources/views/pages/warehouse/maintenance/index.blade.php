@@ -22,7 +22,7 @@
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Maintenance</h6>
-                    <a class="btn btn-sm btn-primary">Tambah Data</a>
+                    <a class="btn btn-sm btn-primary" href="{{route('warehouse.maintenance.create')}}">Tambah Data</a>
                 </div>
             </div>
             <div class="card-body">
@@ -30,37 +30,35 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Delivery Type</th>
-                                <th>Pickup Lokasi</th>
-                                <th>Tujuan Lokasi</th>
-                                <th>Tanggal Pickup</th>
-                                <th>Tujuan Pickup</th>
-                                <th>Fuel Consumption</th>
-                                <th>Aksi</th>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product</th>
+                                    <th>Warehouse</th>
+                                    <th>exp date</th>
+                                    <th>quantity_exp</th>
+                                    <th>Aksi</th>
+                                </tr>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($data as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->product->name }}</td>
+                                <td>{{ $item->warehouse->location }}</td>
+                                <td>{{ $item->product->exp_date }}</td>
+                                <td>{{ $item->quantity_exp }}</td>
                                 <td>
-                                    <a " class=" btn btn-sm btn-warning"><i class="fas fa-eye"></i></a>
-                                    <form method="post" class="d-inline">
+                                    <a class=" btn btn-sm btn-warning" href="{{ route('warehouse.maintenance.show', $item->id) }}"><i class="fas fa-eye"></i></a>
+                                    <form action="{{ route('warehouse.maintenance.destroy', $item->id) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>
-
+                                    <a class="btn btn-sm btn-primary" href="{{ route('warehouse.maintenance.edit', $item->id) }}">Edit</a>
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

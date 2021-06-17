@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Warehouse;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,8 +11,13 @@ class Maintenance extends Model
 	protected $table = "maintenance";
 	protected $guarded = [];
 
+	public function warehouse()
+	{
+		return $this->belongsTo('App\Models\Warehouse\Warehouse');
+	}
+
 	public function product()
 	{
-		return $this->belongsToMany(Product::class);
+		return $this->belongsTo('App\Models\Product');
 	}
 }
