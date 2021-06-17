@@ -9,6 +9,7 @@ use App\Models\Logistics\Delivery;
 use App\Models\Product;
 use App\Models\Driver;
 use App\Models\Vehicle;
+use App\Models\Warehouse\Warehouse;
 
 class DeliveryController extends Controller
 {
@@ -33,14 +34,16 @@ class DeliveryController extends Controller
      */
     public function create()
     {
-        $vehicle = Vehicle::get();
-        $driver = Driver::get();
-        $product = Product::get();
+        $vehicle = Vehicle::all();
+        $driver = Driver::all();
+        $product = Product::all();
+        $warehouse = Warehouse::all();
         return view('pages.logistik.delivery.create', [
             'title' => 'Delivery',
             'product' => $product,
             'vehicle' => $vehicle,
-            'driver' => $driver
+            'driver' => $driver,
+            'warehouse' => $warehouse,
         ]);
     }
 
