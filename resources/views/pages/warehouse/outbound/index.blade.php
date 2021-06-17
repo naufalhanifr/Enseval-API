@@ -34,6 +34,7 @@
                                 <th>Tanggal Keluar</th>
                                 <th>Product</th>
                                 <th>Warehouse</th>
+                                <th>Vehicle</th>
                                 <th>Alamat Pengiriman</th>
                                 <th>Jumlah Barang Keluar</th>
                                 <th>Biaya</th>
@@ -47,6 +48,7 @@
                                 <td>{{ $item->out_date }}</td>
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->warehouse->location }}</td>
+                                <td>{{ $item->vehicle->type }}</td>
                                 <td>{{ $item->delivery_id }}</td>
                                 <td>{{ $item->quantity_out }}</td>
                                 <td>{{ $item->cost }}</td>

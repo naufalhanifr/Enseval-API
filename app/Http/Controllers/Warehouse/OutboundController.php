@@ -34,10 +34,11 @@ class OutboundController extends Controller
 	{
 
 		$product = Product::find($req->product_id);
-
+		
 		$warehouse = Warehouse::find($req->warehouse_id);
 
 		if (!$product) return response()->json(["error" => true, "message" => "Product " . $req->product_id . " not found"]);
+		
 		if (!$warehouse) return response()->json(["error" => true, "message" => "Warehouse " . $req->warehouse_id . " not found"]);
 
 		$result = Outbound::create(

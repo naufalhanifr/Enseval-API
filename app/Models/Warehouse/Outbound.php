@@ -20,4 +20,9 @@ class Outbound extends Model
     {
         return $this->belongsTo('App\Models\Product');
     }
+
+    public function vehicle()
+    {
+        return $this->belongsTo('App\Models\vehicle');
+    }
 }

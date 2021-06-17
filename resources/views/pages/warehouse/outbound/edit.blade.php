@@ -30,6 +30,15 @@
                     </div>
 
                 </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="vehicle_id" class=" form-control-label">Vehicle</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="vehicle_id" id="vehicle_id" cols="30" rows="5" class="form-control" placeholder="Vehicle" value="{{ $data->vehicle_id ?? old('vehicle_id')}}"></input>
+                    </div>
+
+                </div>
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Alamat Pengiriman</label></div>
                     <div class=" col-5 col-md-9">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Warehouse\Outbound;
 use App\Models\Warehouse\Warehouse;
 use App\Models\Product;
+use App\Models\vehicle;
 
 
 class OutboundController extends Controller
@@ -34,11 +35,13 @@ class OutboundController extends Controller
     public function create()
     {
         $product = Product::all();
+        $vehicle = Vehicle::all();
         $warehouse = Warehouse::all();
         $data = outbound::all();
         return view('pages.warehouse.outbound.create', [
             'title' => 'Warehouse',
             'product' => $product,
+            'vehicle' => $vehicle,
             'warehouse' => $warehouse,
         ]);
     }
@@ -54,13 +57,14 @@ class OutboundController extends Controller
         $request->validate([
             'cost' => ['required'],
             'product_id' => ['required'],
+            'vehicle_id' => ['required'],
             'warehouse_id' => ['required'],
         ]);
 
         $outbound = $request->all();
         outbound::create($outbound);
 
-        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Ditambah.');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Ditambah.');
     }
 
     /**
@@ -114,7 +118,7 @@ class OutboundController extends Controller
 
         $data = $request->all();
         $outbound->update($data);
-        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Di update');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Di update');
     }
 
     /**
@@ -127,6 +131,6 @@ class OutboundController extends Controller
     {
         $outbound = outbound::findOrFail($id);
         $outbound->delete();
-        return redirect()->route('warehouse.outbound.index')->with('success', 'outbound Berhasil Di hapus');
+        return redirect()->route('warehouse.outbound.index')->with('success', 'Outbound Berhasil Di hapus');
     }
 }

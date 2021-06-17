@@ -41,6 +41,21 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="vehicle_id" class=" form-control-label">Vehicle</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="vehicle_id" class="form-control">
+                            <option value=""> Pilih Jenis Kendaran --</option>
+                            @foreach($vehicle as $item)
+                            <option value=" {{ $item->id }}">{{ $item->type }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Alamat Pengiriman</label></div>
                     <div class=" col-5 col-md-9">
