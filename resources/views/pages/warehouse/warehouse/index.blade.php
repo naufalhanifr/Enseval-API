@@ -32,8 +32,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Lokasi Warehouse</th>
-                                <th>Loc Lat</th>
-                                <th>Loc Lng</th>
                                 <th>Kapasitas Warehouse</th>
                                 <th>Volume Warehouse</th>
                                 <th>Aksi</th>
@@ -44,8 +42,6 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->location }}</td>
-                                <td>{{ $item->loc_lat }}</td>
-                                <td>{{ $item->loc_lng }}</td>
                                 <td>{{ $item->capacity }}</td>
                                 <td>{{ $item->volume }}</td>
                                 <td>

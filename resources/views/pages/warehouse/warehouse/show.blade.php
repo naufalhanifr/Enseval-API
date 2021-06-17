@@ -14,8 +14,6 @@
                         <thead>
                             <tr>
                                 <th>Lokasi Warehouse</th>
-                                <th>Loc Lat</th>
-                                <th>Loc Lng</th>
                                 <th>Kapasitas Warehouse</th>
                                 <th>Volume Warehouse</th>
                             </tr>
@@ -23,8 +21,6 @@
                         <tbody>
                             <tr>
                                 <td>{{ $data->location }}</td>
-                                <td>{{ $data->loc_lat }}</td>
-                                <td>{{ $data->loc_lng }}</td>
                                 <td>{{ $data->capacity }}</td>
                                 <td>{{ $data->volume }}</td>
                             </tr>
