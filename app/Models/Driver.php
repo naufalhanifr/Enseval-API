@@ -27,4 +27,8 @@ class Driver extends Model
     protected $table = "driver";
     protected $guarded = [];
 
+    public function delivery()
+    {
+        return $this->hasMany('App\Models\Logistics\Delivery');
+    }
 }

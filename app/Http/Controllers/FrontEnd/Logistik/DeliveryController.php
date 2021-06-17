@@ -64,8 +64,8 @@ class DeliveryController extends Controller
             'product_id' => ['required'],
         ]);
 
-        $Delivery = $request->all();
-        Delivery::create($Delivery);
+        $delivery = $request->all();
+        Delivery::create($delivery);
 
         return redirect()->route('logistik.delivery.index')->with('success', 'Delivery Berhasil Ditambah');
     }
@@ -94,11 +94,20 @@ class DeliveryController extends Controller
      */
     public function edit($id)
     {
+
+        $vehicle = Vehicle::get();
+        $driver = Driver::get();
+        $product = Product::get();
+        $delivery = Delivery::get();
         $data = Delivery::findOrFail($id);
 
         return view('pages.logistik.delivery.edit', [
             'title' => 'Edit Delivery' . $data->name,
-            'data' => $data
+            'data' => $data,
+            'product' => $product,
+            'vehicle' => $vehicle,
+            'driver' => $driver,
+            'delivery' => $delivery
         ]);
     }
 

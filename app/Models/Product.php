@@ -21,4 +21,8 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Warehouse\Outbound');
     }
+    public function delivery()
+    {
+        return $this->hasMany('App\Models\Logistics\Delivery');
+    }
 }

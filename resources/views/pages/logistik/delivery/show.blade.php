@@ -22,14 +22,14 @@
                                 <th>Tujuan Lokasi</th>
                                 <th>Fuel Consumption</th>
                                 <th>Biaya</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $data->driver_id }}</td>
-                                <td>{{ $data->product_id }}</td>
-                                <td>{{ $data->vehicle_id}}</td>
+                                <td>{{ $data->delivery_type}}</td>
+                                <td>{{ $data->product->name }}</td>
+                                <td>{{ $data->vehicle->type}}</td>
+                                <td>{{ $data->driver->name }}</td>
                                 <td>{{ $data->date_pickup }}</td>
                                 <td>{{ $data->pickup_location }}</td>
                                 <td>{{ $data->destination_location }}</td>
