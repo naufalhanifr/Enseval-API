@@ -54,12 +54,7 @@ class OperationalController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'expense' => ['required'],
-            'maintenance_id' => ['required'],
-            'inbound_id' => ['required'],
-            'outbound_id' => ['required'],
-        ]);
+        $request->validate([]);
 
         $Operational = $request->all();
         operational::create($Operational);
@@ -92,18 +87,18 @@ class OperationalController extends Controller
     public function edit($id)
     {
         $data = Operational::findOrFail($id);
-        $inbound = Inbound::findOrFail($id);
-        $outbound = Outbound::findOrFail($id);
-        $maintenance = Maintenance::findOrFail($id);
+        $maintenance = Maintenance::all();
+        $inbound = Inbound::all();
+        $outbound = Outbound::all();
 
 
 
         return view('pages.warehouse.operational.edit', [
-            'title' => 'Detail Operational',
+            'title' => 'Operational',
             'data' => $data,
-            'inbound' => $inbound,
-            'outbound' => $outbound,
             'maintenance' => $maintenance,
+            'inbound' => $inbound,
+            'outbound' => $outbound
         ]);
     }
 
@@ -117,12 +112,7 @@ class OperationalController extends Controller
     public function update(Request $request, $id)
     {
         $Operatioanl = Operational::findOrFail($id);
-        $request->validate([
-            'expense' => ['required'],
-            'maintenance_id' => ['required'],
-            'inbound_id' => ['required'],
-            'outbound_id' => ['required'],
-        ]);
+            
 
         $data = $request->all();
         $Operatioanl->update($data);

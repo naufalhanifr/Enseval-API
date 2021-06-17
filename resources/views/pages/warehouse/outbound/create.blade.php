@@ -42,7 +42,30 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
 
+=======
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="vehicle_id" class=" form-control-label">Vehicle</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="vehicle_id" class="form-control">
+                            <option value=""> Pilih Jenis Kendaran --</option>
+                            @foreach($vehicle as $item)
+                            <option value=" {{ $item->id }}">{{ $item->type }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Alamat Pengiriman</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+>>>>>>> 08fe21f30facd1444d295efbcefefd918550f89e
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="quantity_out" class=" form-control-label">Jumlah Barang Keluar</label></div>
                     <div class=" col-5 col-md-9">
