@@ -48,8 +48,8 @@ class WarehouseController extends Controller
     {
         $request->validate([
             'location' => ['required'],
-            'loc_lat' => ['required'],
-            'loc_lng' => ['required'],
+            // 'loc_lat' => ['required'],
+            // 'loc_lng' => ['required'],
             'capacity' => ['required'],
             'volume' => ['required'],
         ]);
@@ -104,8 +104,8 @@ class WarehouseController extends Controller
         $warehouse = warehouse::findOrFail($id);
         $request->validate([
             'location' => ['required'],
-            'loc_lat' => ['required'],
-            'loc_lng' => ['required'],
+            // 'loc_lat' => ['required'],
+            // 'loc_lng' => ['required'],
             'capacity' => ['required'],
             'volume' => ['required'],
         ]);
