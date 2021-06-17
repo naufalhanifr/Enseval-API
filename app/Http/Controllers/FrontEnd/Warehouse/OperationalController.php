@@ -36,11 +36,13 @@ class OperationalController extends Controller
         $inbound = Inbound::all();
         $maintenance = Maintenance::all();
         $outbound = Outbound::all();
+        $data = Operational::all();
+
         return view('pages.warehouse.operational.create', [
             'title' => 'Warehouse',
-            'inbound' => $inbound,
             'maintenance' => $maintenance,
-            'outbound' => $outbound,
+            'inbound' => $inbound,
+            'outbound' => $outbound
         ]);
     }
 
@@ -60,7 +62,7 @@ class OperationalController extends Controller
         ]);
 
         $Operational = $request->all();
-        Operational::create($Operational);
+        operational::create($Operational);
 
         return redirect()->route('warehouse.operational.index')->with('success', 'Operational Berhasil Ditambah.');
     }
@@ -101,7 +103,7 @@ class OperationalController extends Controller
             'data' => $data,
             'inbound' => $inbound,
             'outbound' => $outbound,
-            'maintenance' => $maintenance
+            'maintenance' => $maintenance,
         ]);
     }
 
