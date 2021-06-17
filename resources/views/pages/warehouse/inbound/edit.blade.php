@@ -13,41 +13,58 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="in_date" class=" form-control-label">Tanggal Masuk</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="date" name="in_date" id="in_date" cols="30" rows="5" class="form-control" placeholder="Tanggal Masuk" value="{{ $data->in_date ?? old('in_date')}}"></input>
+                        <input type="date" name="in_date" id="in_date" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="product_id" class=" form-control-label">Product</label></div>
+                    <div class="col col-md-3">
+                        <label for="product_id" class=" form-control-label">Product</label>
+                    </div>
                     <div class="col-12 col-md-9">
-                        <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Product" value="{{ $data->product_id ?? old('product_id')}}">
+                        <select name="product_id" id="product_id" class="form-control ">
+                            <option value="">-- Pilih Product --</option>
+                            @foreach($product as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="warehouse_id" class=" form-control-label">Warehouse</label></div>
+                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label"> Asal Barang</label>
+                    </div>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="warehouse_id" id="warehouse_id" cols="30" rows="5" class="form-control" placeholder="Warehouse" value="{{ $data->warehouse_id ?? old('warehouse_id')}}"></input>
+                        <select name="delivery_id" id="delivery_id" class="form-control">
+                            <option value="">-- Pilih Lokasi Asal Product --</option>
+                            @foreach($delivery->where('delivery_type' , '=' , 'Penjemputan') as $item)
+                            <option value=" {{ $item->id }}">{{ $item->pickup_location}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                </div>
 
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Asal Barang</label></div>
-                    <div class=" col-5 col-md-9">
-                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control" placeholder="Asal Barang" value="{{ $data->delivery_id ?? old('delivery_id')}}"></input>
-                    </div>
-                </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="quantity_in" class=" form-control-label">Jumlah Barang Masuk</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="number" name="quantity_in" id="quantity_in" cols="30" rows="5" class="form-control" placeholder="Jumlah Barang Masuk" value="{{ $data->quantity_in ?? old('quantity_in')}}"></input>
+                        <input type="number" name="quantity_in" id="quantity_in" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
+
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="quantity_in" class=" form-control-label">Biaya</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+
+
+                <!-- <div class="row form-group">
                     <div class="col col-md-3"><label for="quantity_in" class=" form-control-label">Biaya</label></div>
                     <div class=" col-5 col-md-9">
                         <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control" placeholder="Biaya" value="{{ $data->cost ?? old('cost')}}"></input>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="form-group">
                     <button class="btn btn btn-block btn-primary">Update Data</button>
                 </div>

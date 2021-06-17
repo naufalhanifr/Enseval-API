@@ -15,8 +15,8 @@
                             <tr>
                                 <th>Tanggal Masuk</th>
                                 <th>Product</th>
-                                <th>Warehouse</th>
                                 <th>Asal Barang</th>
+                                <th>Lokasi Warehouse</th>
                                 <th>Jumlah Barang Masuk</th>
                                 <th>Biaya</th>
                             </tr>
@@ -24,12 +24,11 @@
                         <tbody>
                             <tr>
                                 <td>{{ $data->in_date }}</td>
-                                <td>{{ $data->product_id }}</td>
-                                <td>{{ $data->warehouse_id }}</td>
-                                <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->product->name }}</td>
+                                <td>{{ $data->delivery->pickup_location }}</td>
+                                <td>{{ $data->delivery->destination_location }}</td>
                                 <td>{{ $data->quantity_in }}</td>
                                 <td>{{ $data->cost }}</td>
-                                <td>
                             </tr>
                         </tbody>
                     </table>

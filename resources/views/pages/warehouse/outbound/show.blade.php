@@ -15,8 +15,8 @@
                             <tr>
                                 <th>Tanggal Keluar</th>
                                 <th>Product</th>
-                                <th>Warehouse</th>
-                                <th>Alamat Pengiriman </th>
+                                <th>Lokasi Asal Barang</th>
+                                <th>Lokasi Pengantaran Barang</th>
                                 <th>Jumlah Barang Keluar</th>
                                 <th>Biaya</th>
                             </tr>
@@ -24,12 +24,11 @@
                         <tbody>
                             <tr>
                                 <td>{{ $data->out_date }}</td>
-                                <td>{{ $data->product_id }}</td>
-                                <td>{{ $data->warehouse_id }}</td>
-                                <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->product->name }}</td>
+                                <td>{{ $data->delivery->pickup_location }}</td>
+                                <td>{{ $data->delivery->destination_location }}</td>
                                 <td>{{ $data->quantity_out }}</td>
                                 <td>{{ $data->cost }}</td>
-                                <td>
                             </tr>
                         </tbody>
                     </table>

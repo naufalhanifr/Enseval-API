@@ -33,8 +33,8 @@
                                 <th>#</th>
                                 <th>Tanggal Keluar</th>
                                 <th>Product</th>
-                                <th>Warehouse</th>
-                                <th>Alamat Pengiriman</th>
+                                <th>Lokasi Asal Barang</th>
+                                <th>Lokasi Pengantaran Barang</th>
                                 <th>Jumlah Barang Keluar</th>
                                 <th>Biaya</th>
                                 <th>Aksi</th>
@@ -46,8 +46,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->out_date }}</td>
                                 <td>{{ $item->product->name }}</td>
-                                <td>{{ $item->warehouse->location }}</td>
-                                <td>{{ $item->delivery_id }}</td>
+                                <td>{{ $item->delivery->pickup_location }}</td>
+                                <td>{{ $item->delivery->destination_location }}</td>
                                 <td>{{ $item->quantity_out }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>

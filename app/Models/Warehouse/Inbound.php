@@ -21,4 +21,9 @@ class Inbound extends Model
     {
         return $this->belongsTo('App\Models\Product');
     }
+
+    public function delivery()
+    {
+        return $this->belongsTo('App\Models\Logistics\Delivery');
+    }
 }

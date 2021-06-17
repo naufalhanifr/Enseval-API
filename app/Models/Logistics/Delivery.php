@@ -32,4 +32,14 @@ class Delivery extends Model
     {
         return $this->hasMany('App\Models\Logistics\Track');
     }
+    public function inbound()
+    {
+        return $this->hasMany('App\Models\Warehouse\Inbound');
+    }
+
+
+    public function outbound()
+    {
+        return $this->hasMany('App\Models\Warehouse\Outbound');
+    }
 }

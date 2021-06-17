@@ -18,9 +18,8 @@ class CreateInboundTable extends Migration
             $table->integer('quantity_in');
             $table->integer('cost');
             $table->string('in_date');
-            $table->string('delivery_id');
+            $table->foreignId('delivery_id')->constrained('delivery')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained('product')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('warehouse_id')->constrained('warehouse')->cascadeOnUpdate()->cascadeOnDelete();
             // $table->dateTime('date_inbound');
             $table->timestamps();
         });

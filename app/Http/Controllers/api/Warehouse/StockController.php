@@ -5,12 +5,12 @@ namespace App\Http\Controllers\FrontEnd\Warehouse;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use App\Models\Warehouse\Inbound;
+
+use App\Models\Warehouse\Stock;
 use App\Models\Warehouse\Warehouse;
-use App\Models\Logistics\Delivery;
 use App\Models\Product;
 
-class InboundController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,9 @@ class InboundController extends Controller
      */
     public function index()
     {
-        $data = Inbound::with('product', 'warehouse')->get();
-        return view('pages.warehouse.inbound.index', [
-            'title' => 'Warehouse',
+        $data = Stock::with('product', 'warehouse')->get();
+        return view('pages.warehouse.stock.index', [
+            'title' => 'Stock',
             'data' => $data
         ]);
     }
@@ -33,12 +33,12 @@ class InboundController extends Controller
      */
     public function create()
     {
-        $delivery = Delivery::get();
         $product = Product::all();
-        return view('pages.warehouse.inbound.create', [
-            'title' => 'Warehouse',
+        $warehouse = Warehouse::all();
+        return view('pages.warehouse.stock.create', [
+            'title' => 'Stock',
             'product' => $product,
-            'delivery' => $delivery,
+            'warehouse' => $warehouse,
         ]);
     }
 
@@ -51,14 +51,15 @@ class InboundController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cost' => ['required'],
+            'quantity' => ['required'],
             'product_id' => ['required'],
+            'warehouse_id' => ['required'],
         ]);
 
-        $Inbound = $request->all();
-        Inbound::create($Inbound);
+        $stock = $request->all();
+        Stock::create($stock);
 
-        return redirect()->route('warehouse.inbound.index')->with('success', 'Inbound Berhasil Ditambah.');
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Ditambah.');
     }
 
     /**
@@ -69,10 +70,11 @@ class InboundController extends Controller
      */
     public function show($id)
     {
-        $data = Inbound::findOrFail($id);
+        $data = stock::findOrFail($id);
 
-        return view('pages.warehouse.inbound.show', [
-            'title' => 'Detail Inbound',
+
+        return view('pages.warehouse.stock.show', [
+            'title' => 'Detail stock',
             'data' => $data
         ]);
     }
@@ -85,15 +87,15 @@ class InboundController extends Controller
      */
     public function edit($id)
     {
-        $delivery = Delivery::get();
+        $data = stock::findOrFail($id);
         $product = Product::all();
-        $data = Inbound::findOrFail($id);
+        $warehouse = Warehouse::all();
 
-        return view('pages.warehouse.inbound.edit', [
-            'title' => 'Detail Inbound',
+        return view('pages.warehouse.stock.edit', [
+            'title' => 'Detail stock',
             'data' => $data,
             'product' => $product,
-            'delivery' => $delivery,
+            'warehouse' => $warehouse
         ]);
     }
 
@@ -106,16 +108,16 @@ class InboundController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Inbound = Inbound::findOrFail($id);
+        $stock = stock::findOrFail($id);
         $request->validate([
-            'cost' => ['required'],
+            'quantity' => ['required'],
             'product_id' => ['required'],
             'warehouse_id' => ['required'],
         ]);
 
         $data = $request->all();
-        $Inbound->update($data);
-        return redirect()->route('warehouse.inbound.index')->with('success', 'Inbound Berhasil Di update');
+        $stock->update($data);
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Di update');
     }
 
     /**
@@ -126,8 +128,8 @@ class InboundController extends Controller
      */
     public function destroy($id)
     {
-        $Inbound = Inbound::findOrFail($id);
-        $Inbound->delete();
-        return redirect()->route('warehouse.inbound.index')->with('success', 'Inbound Berhasil Di hapus');
+        $stock = stock::findOrFail($id);
+        $stock->delete();
+        return redirect()->route('warehouse.stock.index')->with('success', 'stock Berhasil Di hapus');
     }
 }
