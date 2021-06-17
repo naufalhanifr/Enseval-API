@@ -10,21 +10,15 @@
             <form action="{{ route('warehouse.operational.update' , $data->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="out_date" class=" form-control-label">Tanggal Keluar</label></div>
-                    <div class=" col-5 col-md-9">
-                        <input type="date" name="out_date" id="out_date" cols="30" rows="5" class="form-control" placeholder="Tanggal Keluar" value="{{ $data->out_date ?? old('out_date')}}"></input>
-                    </div>
-                </div>
 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="product_id" class=" form-control-label">Product</label>
+                        <label for="maintenance_id" class=" form-control-label">Maintenance_ID</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="product_id" class="form-control ">
-                            @foreach($product as $item)
-                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->name }} </option>n>
+                        <select name="maintenance_id" class="form-control ">
+                            @foreach($maintenance as $item)
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
@@ -32,12 +26,12 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="warehouse_id" class=" form-control-label">Warehouse</label>
+                        <label for="inbound_id" class=" form-control-label">Inbound_ID</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="warehouse_id" class="form-control ">
-                            @foreach($warehouse as $item)
-                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->location }} </option>n>
+                        <select name="inbound_id" class="form-control ">
+                            @foreach($inbound as $item)
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
@@ -45,35 +39,21 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="vehicle_id" class=" form-control-label">vehicle</label>
+                        <label for="outbound_id" class=" form-control-label">Outbound_ID</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="vehicle_id" class="form-control ">
-                            @foreach($vehicle as $item)
-                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->type }} </option>n>
+                        <select name="outbound_id" class="form-control ">
+                            @foreach($outbound as $item)
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Alamat Pengiriman</label></div>
+                    <div class="col col-md-3"><label for="expense_id" class=" form-control-label">Expense_ID</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control" placeholder="Asal Barang" value="{{ $data->delivery_id ?? old('delivery_id')}}"></input>
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="quantity_out" class=" form-control-label">Jumlah Barang Keluar</label></div>
-                    <div class=" col-5 col-md-9">
-                        <input type="number" name="quantity_out" id="quantity_out" cols="30" rows="5" class="form-control" placeholder="Jumlah Barang Keluar" value="{{ $data->quantity_out ?? old('quantity_out')}}"></input>
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col col-md-3"><label for="cost" class=" form-control-label">Biaya</label></div>
-                    <div class=" col-5 col-md-9">
-                        <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control" placeholder="Biaya" value="{{ $data->cost ?? old('cost')}}"></input>
+                        <input type="text" name="expense_id" id="expense_id" cols="30" rows="5" class="form-control" placeholder="Expense" value="{{ $data->expense_id ?? old('expense_id')}}"></input>
                     </div>
                 </div>
 
