@@ -15,6 +15,7 @@ class CreateInboundTable extends Migration
     {
         Schema::create('inbound', function (Blueprint $table) {
             $table->id();
+            $table->integer('quantity_in');
             $table->integer('cost');
             $table->string('in_date');
             $table->string('delivery_id');

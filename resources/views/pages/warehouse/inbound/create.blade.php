@@ -48,7 +48,13 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="cost" class=" form-control-label">Cost</label></div>
+                    <div class="col col-md-3"><label for="quantity_in" class=" form-control-label">Jumlah Barang Masuk</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="number" name="quantity_in" id="quantity_in" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="quantity_in" class=" form-control-label">Biaya</label></div>
                     <div class=" col-5 col-md-9">
                         <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
                     </div>

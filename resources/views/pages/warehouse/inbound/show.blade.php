@@ -17,7 +17,8 @@
                                 <th>Product</th>
                                 <th>Warehouse</th>
                                 <th>Asal Barang</th>
-                                <th>Cost</th>
+                                <th>Jumlah Barang Masuk</th>
+                                <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,7 @@
                                 <td>{{ $data->product_id }}</td>
                                 <td>{{ $data->warehouse_id }}</td>
                                 <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->quantity_in }}</td>
                                 <td>{{ $data->cost }}</td>
                                 <td>
                             </tr>

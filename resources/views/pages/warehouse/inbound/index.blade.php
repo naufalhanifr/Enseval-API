@@ -35,7 +35,8 @@
                                 <th>Product</th>
                                 <th>Warehouse</th>
                                 <th>Asal Barang</th>
-                                <th>Cost</th>
+                                <th>Jumlah Barang Masuk</th>
+                                <th>Biaya</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -47,6 +48,7 @@
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->warehouse->location }}</td>
                                 <td>{{ $item->delivery_id }}</td>
+                                <td>{{ $item->quantity_in }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>
                                     <a class=" btn btn-sm btn-warning" href="{{ route('warehouse.inbound.show', $item->id) }}"><i class="fas fa-eye"></i></a>
