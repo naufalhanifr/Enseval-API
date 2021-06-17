@@ -5,7 +5,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Detail Outbound</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Detail Driver</h6>
                 </div>
             </div>
             <div class=" card-body">
@@ -13,17 +13,22 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>Tanggal Keluar</th>
                                 <th>Product</th>
                                 <th>Warehouse</th>
-                                <th>Cost</th>
-                                <th>Aksi</th>
+                                <th>Alamat Pengiriman </th>
+                                <th>Jumlah Barang Keluar</th>
+                                <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $item->product_id }}</td>
-                                <td>{{ $item->warehouse_id }}</td>
-                                <td>{{ $item->cost }}</td>
+                                <td>{{ $data->out_date }}</td>
+                                <td>{{ $data->product_id }}</td>
+                                <td>{{ $data->warehouse_id }}</td>
+                                <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->quantity_out }}</td>
+                                <td>{{ $data->cost }}</td>
                                 <td>
                             </tr>
                         </tbody>

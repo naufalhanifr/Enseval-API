@@ -10,6 +10,12 @@
             <form action="{{ route('warehouse.outbound.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="out_date" class=" form-control-label">Tanggal Keluar</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="date" name="out_date" id="out_date" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3">
                         <label for="product_id" class=" form-control-label">Product</label>
                     </div>
@@ -35,11 +41,22 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="cost" class=" form-control-label">Cost</label></div>
+                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Alamat Pengiriman</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="delivery_id" id="delivery_id" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="quantity_out" class=" form-control-label">Jumlah Barang Keluar</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="number" name="quantity_out" id="quantity_out" cols="30" rows="5" class="form-control"></input>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="quantity_out" class=" form-control-label">Biaya</label></div>
+                    <div class=" col-5 col-md-9">
+                        <input type="number" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="form-group">
