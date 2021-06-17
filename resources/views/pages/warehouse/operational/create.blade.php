@@ -50,9 +50,9 @@
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="cost" class=" form-control-label">Expense_ID</label></div>
+                    <div class="col col-md-3"><label for="expense_id" class=" form-control-label">Expense_ID</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="expense_id" id="expense_id" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="form-group">

@@ -20,11 +20,12 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             <tr>
-                                <td>{{ $item->maintenance_id }}</td>
-                                <td>{{ $item->inbound_id }}</td>
-                                <td>{{ $item->outbound_id }}</td>
-                                <td>{{ $item->expense }}</td>
+                                <td>{{ $data->maintenance_id }}</td>
+                                <td>{{ $data->inbound_id }}</td>
+                                <td>{{ $data->outbound_id }}</td>
+                                <td>{{ $data->expense_id }}</td>
                                 <td>
                             </tr>
                         </tbody>
