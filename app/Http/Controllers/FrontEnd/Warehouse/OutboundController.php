@@ -92,11 +92,16 @@ class OutboundController extends Controller
     public function edit($id)
     {
         $data = outbound::findOrFail($id);
-        
+        $product = Product::all();
+        $warehouse = Warehouse::all();
+        $vehicle = vehicle::all();
 
         return view('pages.warehouse.outbound.edit', [
             'title' => 'Detail outbound',
-            'data' => $data
+            'data' => $data,
+            'product' => $product,
+            'warehouse' => $warehouse,
+            'vehicle' => $vehicle
         ]);
     }
 
@@ -112,8 +117,9 @@ class OutboundController extends Controller
         $outbound = outbound::findOrFail($id);
         $request->validate([
             'cost' => ['required'],
+            'vehicle_id' => ['required'],
             'product_id' => ['required'],
-            'warehouse_id' => ['required'],
+            'warehouse_id' => ['required']
         ]);
 
         $data = $request->all();
