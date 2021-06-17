@@ -15,11 +15,9 @@ class CreateMaintenanceTable extends Migration
     {
         Schema::create('maintenance', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity_exp');
-
             $table->foreignId('product_id')->constrained('product')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('warehouse_id')->constrained('warehouse')->cascadeOnUpdate()->cascadeOnDelete();
-
+            $table->integer('quantity_exp');
             $table->timestamps();
         });
     }
