@@ -88,6 +88,7 @@ class OutboundController extends Controller
     public function edit($id)
     {
         $data = outbound::findOrFail($id);
+        
 
         return view('pages.warehouse.outbound.edit', [
             'title' => 'Detail outbound',

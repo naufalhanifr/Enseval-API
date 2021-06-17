@@ -19,8 +19,10 @@ class OperationalController extends Controller
      */
     public function index()
     {
+        $data = Operational::with('maintenance', 'inbound', 'outbound')->get();
         return view('pages.warehouse.operational.index', [
-            'title' => 'Warehouse'
+            'title' => 'Warehouse',
+            'data' => $data
         ]);
     }
 
@@ -88,10 +90,18 @@ class OperationalController extends Controller
     public function edit($id)
     {
         $data = Operational::findOrFail($id);
+        $inbound = Inbound::findOrFail($id);
+        $outbound = Outbound::findOrFail($id);
+        $maintenance = Maintenance::findOrFail($id);
+
+
 
         return view('pages.warehouse.operational.edit', [
             'title' => 'Detail Operational',
-            'data' => $data
+            'data' => $data,
+            'inbound' => $inbound,
+            'outbound' => $outbound,
+            'maintenance' => $maintenance
         ]);
     }
 

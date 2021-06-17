@@ -4,59 +4,55 @@
 <div class="col">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title text-primary ">Tambah Operational</h4>
+            <h4 class="card-title text-primary ">Edit Stock</h4>
         </div>
         <div class="card-body">
-            <form action="{{ route('warehouse.operational.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('warehouse.stock.update' , $data->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('patch')
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="maintenance_id" class=" form-control-label">Maintenance_ID</label>
+                        <label for="product_id" class=" form-control-label">Product</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="maintenance_id" class="form-control ">
-                            <option value=""> Pilih Maintenance --</option>
+                        <select name="product_id" class="form-control ">
                             @foreach($maintenance as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="inbound_id" class=" form-control-label">Inbound_ID</label>
+                    <div class="col col-md-3"><label for="warehouse_id" class=" form-control-label">Warehouse</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="inbound_id" class="form-control">
-                            <option value=""> Pilih Inbound --</option>
+                        <select name="warehouse_id" class="form-control">
                             @foreach($inbound as $item)
-                            <option value=" {{ $item->id }}">{{ $item->location }}</option>
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="outbound_id" class=" form-control-label">Outbound_ID</label>
+                    <div class="col col-md-3"><label for="warehouse_id" class=" form-control-label">Warehouse</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <select name="outbound_id" class="form-control">
-                            <option value=""> Pilih Outbound --</option>
+                        <select name="warehouse_id" class="form-control">
                             @foreach($outbound as $item)
-                            <option value=" {{ $item->id }}">{{ $item->location }}</option>
+                            <option value="{{ $item->id }}" {{ ( $item->id) ? 'selected' : '' }}> {{ $item->id }} </option>n>
                             @endforeach
                         </select>
                     </div>
                 </div>
-
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="cost" class=" form-control-label">Expense_ID</label></div>
+                    <div class="col col-md-3"><label for="quantity" class=" form-control-label">Quantity</label></div>
                     <div class=" col-5 col-md-9">
-                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                        <input type="number" name="quantity" id="quantity" cols="30" rows="5" class="form-control" placeholder="Quantity<" value="{{ $data->quantity?? old('quantity')}}"></input>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn btn-block btn-primary">Tambah Data</button>
+                    <button class="btn btn btn-block btn-primary">Update Data</button>
                 </div>
             </form>
         </div>

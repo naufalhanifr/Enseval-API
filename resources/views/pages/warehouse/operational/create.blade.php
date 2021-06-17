@@ -30,12 +30,12 @@
                         <select name="inbound_id" class="form-control">
                             <option value=""> Pilih Inbound --</option>
                             @foreach($inbound as $item)
-                            <option value=" {{ $item->id }}">{{ $item->location }}</option>
+                            <option value=" {{ $item->id }}">{{ $item->id }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="outbound_id" class=" form-control-label">Outbound_ID</label>
                     </div>
@@ -43,7 +43,7 @@
                         <select name="outbound_id" class="form-control">
                             <option value=""> Pilih Outbound --</option>
                             @foreach($outbound as $item)
-                            <option value=" {{ $item->id }}">{{ $item->location }}</option>
+                            <option value=" {{ $item->id }}">{{ $item->id }}</option>
                             @endforeach
                         </select>
                     </div>

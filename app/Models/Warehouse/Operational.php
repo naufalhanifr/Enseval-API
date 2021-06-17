@@ -16,7 +16,7 @@ class Operational extends Model
     {
         return $this->belongsTo('App\Models\Warehouse\Maintenance');
     }
-    
+
     public function inbound()
     {
         return $this->belongsTo('App\Models\Warehouse\Inbound');
@@ -26,6 +26,4 @@ class Operational extends Model
     {
         return $this->belongsTo('App\Models\Warehouse\Outbound');
     }
-    
 }
-

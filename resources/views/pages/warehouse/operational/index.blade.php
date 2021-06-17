@@ -39,13 +39,13 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($data as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->maintenance_id}}</td>
+                                <td>{{ $item->inbound_id}}</td>
+                                <td>{{ $item->outbound_id}}</td>
+                                <td>{{ $item->expense_id}}</td>
                                 <td>
                                     <a " class=" btn btn-sm btn-warning"><i class="fas fa-eye"></i></a>
                                     <form method="post" class="d-inline">
@@ -53,10 +53,10 @@
                                         @method('delete')
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>
-
+                                    <a class="btn btn-sm btn-primary" href="{{ route('warehouse.operational.edit', $item->id) }}">Edit</a>
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
