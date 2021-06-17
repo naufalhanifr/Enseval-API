@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Logistics\Delivery;
+use App\Models\Product;
+use App\Models\Driver;
+use App\Models\Vehicle;
 
 class DeliveryController extends Controller
 {
@@ -16,7 +19,7 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        $data = Delivery::all();
+        $data = Delivery::with('driver', 'vehicle', 'product')->get();
         return view('pages.logistik.delivery.index', [
             'title' => 'Delivery',
             'data' => $data
@@ -30,10 +33,14 @@ class DeliveryController extends Controller
      */
     public function create()
     {
-        $data = Delivery::get();
+        $vehicle = Vehicle::get();
+        $driver = Driver::get();
+        $product = Product::get();
         return view('pages.logistik.delivery.create', [
             'title' => 'Delivery',
-            'data' => $data
+            'product' => $product,
+            'vehicle' => $vehicle,
+            'driver' => $driver
         ]);
     }
 

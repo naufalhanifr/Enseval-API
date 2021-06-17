@@ -10,27 +10,47 @@
             <form action="{{ route('logistik.product.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="delivery_type" class=" form-control-label">Delivery Type</label></div>
+                    <div class="col col-md-3"><label for="delivery_type" class=" form-control-label">Delivery Type</label>
+                    </div>
                     <div class="col-12 col-md-9">
-                        <input type="text" class="form-control" id="delivery_type" name=" delivery_type">
+                        <select name="delivery_type" class="form-control ">
+                            <option value=""> Pilih Delivery --</option>
+                            <option value="1">Pengiriman</option>
+                            <option value="2">Penjualan</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="driver_id" class=" form-control-label">Product</label></div>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="driver_id" id="driver_id" cols="30" rows="5" class="form-control"></input>
+                        <select name="driver_id" class="form-control ">
+                            <option value=""> Pilih Product --</option>
+                            @foreach($product as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="product_id" class=" form-control-label">Kendaraan</label></div>
+                    <div class="col col-md-3"><label for="vehicle_id" class=" form-control-label">Kendaraan</label></div>
                     <div class="col-5 col-md-9">
-                        <input type="text" name="product_id" id="product_id" cols="30" rows="5" class="form-control"></input>
+                        <select name="vehicle_id" class="form-control ">
+                            <option value=""> Pilih Kendaraan --</option>
+                            @foreach($vehicle as $item)
+                            <option value="{{ $item->id }}">{{ $item->type }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="vehicle_id" class=" form-control-label">Driver</label></label></div>
+                    <div class="col col-md-3"><label for="driver_id" class=" form-control-label">Driver</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="date" name="vehicle_id" id="vehicle_id" cols="30" rows="5" class="form-control"></input>
+                        <select name="driver_id" class="form-control ">
+                            <option value=""> Pilih Driver --</option>
+                            @foreach($driver as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -42,25 +62,25 @@
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="pickup_location" class=" form-control-label">Pickup Lokasi</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="date" name="pickup_location" id="pickup_location" cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="pickup_location" id="pickup_location" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="destination_location" class=" form-control-label">Tujuan Lokasi</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="date" name="destination_location" id="destination_location" cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="destination_location" id="destination_location" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="fuel_consumption " class=" form-control-label">Fuel Consumption</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="date" name="fuel_consumption " id="fuel_consumption " cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="fuel_consumption " id="fuel_consumption " cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="cost" class=" form-control-label">Biaya</label></label></div>
                     <div class="col-5 col-md-9">
-                        <input type="date" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
+                        <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>
                     </div>
                 </div>
                 <div class="form-group">
