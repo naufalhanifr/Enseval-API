@@ -10,6 +10,7 @@ use App\Http\Controllers\FrontEnd\Logistik\VehicleController;
 use App\Http\Controllers\FrontEnd\Warehouse\OutboundController;
 use App\Http\Controllers\FrontEnd\Warehouse\StockController;
 use App\Http\Controllers\FrontEnd\Warehouse\WarehouseController;
+use App\Http\Controllers\FrontEnd\Warehouse\OperationalController;
 use App\Http\Controllers\FrontEnd\Warehouse\MaintenanceController;
 use App\Http\Controllers\FrontEnd\Warehouse\InboundController;
 
@@ -44,6 +45,7 @@ route::name('logistik.')->group(function () {
 route::name('warehouse.')->group(function () {
     Route::resource('inbound', InboundController::class);
     Route::resource('maintenance', MaintenanceController::class);
+    Route::resource('operational', OperationalController::class);
     Route::resource('warehouse', WarehouseController::class);
     Route::resource('outbound', OutboundController::class);
     Route::resource('stock', StockController::class);
