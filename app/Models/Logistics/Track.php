@@ -31,6 +31,6 @@ class Track extends Model
 
     public function delivery()
     {
-        return $this->belongsToMany(Delivery::class);
+        return $this->belongsTo('App\Models\Logistics\Delivery');
     }
 }

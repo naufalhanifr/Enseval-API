@@ -16,7 +16,7 @@
                                 <th>Delivery</th>
                                 <th>Temperature</th>
                                 <th>Speed AVG</th>
-                                <th>Kapasitas Bensin</th>
+                                <th>Penggunaan Bensin</th>
                                 <th>Loc Lat</th>
                                 <th>Loc Lng</th>
                                 <th>Status</th>
@@ -24,12 +24,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $data->delivery_id }}</td>
+                                <td>{{ $data->delivery->delivery_type }}</td>
                                 <td>{{ $data->temp }}</td>
-                                <td>{{ $data->fuel_capacityt }}</td>
+                                <td>{{ $data->speed }}</td>
+                                <td>{{ $data->fuel_capacity }}</td>
                                 <td>{{ $data->loc_lat }}</td>
                                 <td>{{ $data->loc_lng }}</td>
-                                <td>{{ $data->Status}}</td>
+                                <td>{{ $data->status}}</td>
                             </tr>
                         </tbody>
                     </table>

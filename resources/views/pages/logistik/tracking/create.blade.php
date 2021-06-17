@@ -10,9 +10,14 @@
             <form action="{{ route('logistik.tracking.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="delivery_id" class=" form-control-label">Delivery</label></div>
+                    <div class="col col-md-3"><label for="driver_id" class=" form-control-label">Delivery</label></div>
                     <div class="col-12 col-md-9">
-                        <input type="text" class="form-control" id="delivery_id" name=" delivery_id">
+                        <select name="delivery_id" class="form-control ">
+                            <option value=""> Pilih Product --</option>
+                            @foreach($delivery as $item)
+                            <option value="{{ $item->id }}">{{ $item->delivery_type}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -30,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="fuel_capacity" class=" form-control-label">Kapasitas Bensin</label></label></div>
+                    <div class="col col-md-3"><label for="fuel_capacity" class=" form-control-label">Penggunaan Bensin</label></label></div>
                     <div class="col-5 col-md-9">
                         <input type="text" name="fuel_capacity" id="fuel_capacity" cols="30" rows="5" class="form-control"></input>
                     </div>

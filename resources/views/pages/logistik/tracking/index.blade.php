@@ -34,7 +34,7 @@
                                 <th>Delivery</th>
                                 <th>Temperature</th>
                                 <th>Speed AVG</th>
-                                <th>Kapasitas Bensin</th>
+                                <th>Penggunaan Bensin</th>
                                 <th>Loc Lat</th>
                                 <th>Loc Lng</th>
                                 <th>Status</th>
@@ -45,20 +45,21 @@
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->delivery_id }}</td>
+                                <td>{{ $item->delivery->delivery_type }}</td>
                                 <td>{{ $item->temp }}</td>
-                                <td>{{ $item->fuel_capacityt }}</td>
+                                <td>{{ $item->speed }}</td>
+                                <td>{{ $item->fuel_capacity }}</td>
                                 <td>{{ $item->loc_lat }}</td>
                                 <td>{{ $item->loc_lng }}</td>
-                                <td>{{ $item->Status}}</td>
+                                <td>{{ $item->status}}</td>
                                 <td>
-                                    <a class=" btn btn-sm btn-warning" href="{{ route('logistik.vehicle.show', $item->id) }}"><i class="fas fa-eye"></i></a>
-                                    <form action="{{ route('logistik.vehicle.destroy', $item->id) }}" method="post" class="d-inline">
+                                    <a class=" btn btn-sm btn-warning" href="{{ route('logistik.tracking.show', $item->id) }}"><i class="fas fa-eye"></i></a>
+                                    <form action="{{ route('logistik.tracking.destroy', $item->id) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('logistik.vehicle.edit', $item->id) }}">Edit</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('logistik.tracking.edit', $item->id) }}">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

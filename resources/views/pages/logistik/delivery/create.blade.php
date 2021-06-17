@@ -72,12 +72,6 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="fuel_consumption" class=" form-control-label">Fuel Consumption</label></label></div>
-                    <div class="col-5 col-md-9">
-                        <input type="text" name="fuel_consumption" id="fuel_consumption" cols="30" rows="5" class="form-control"></input>
-                    </div>
-                </div>
-                <div class="row form-group">
                     <div class="col col-md-3"><label for="cost" class=" form-control-label">Biaya</label></label></div>
                     <div class="col-5 col-md-9">
                         <input type="text" name="cost" id="cost" cols="30" rows="5" class="form-control"></input>

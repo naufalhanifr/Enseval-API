@@ -27,4 +27,9 @@ class Delivery extends Model
     {
         return $this->belongsTo('App\Models\Vehicle');
     }
+
+    public function track()
+    {
+        return $this->hasMany('App\Models\Logistics\Track');
+    }
 }

@@ -38,7 +38,6 @@
                                 <th>Tanggal Pickup</th>
                                 <th>Pickup Lokasi</th>
                                 <th>Tujuan Lokasi</th>
-                                <th>Fuel Consumption</th>
                                 <th>Biaya</th>
                                 <th>Aksi</th>
                             </tr>
@@ -54,7 +53,6 @@
                                 <td>{{ $item->date_pickup }}</td>
                                 <td>{{ $item->pickup_location }}</td>
                                 <td>{{ $item->destination_location }}</td>
-                                <td>{{ $item->fuel_consumption }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>
                                     <a class=" btn btn-sm btn-warning" href="{{ route('logistik.delivery.show', $item->id) }}"><i class="fas fa-eye"></i></a>

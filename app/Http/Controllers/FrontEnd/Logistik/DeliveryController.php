@@ -58,7 +58,6 @@ class DeliveryController extends Controller
             'destination_location' => ['required'],
             'date_pickup' => ['required'],
             'cost' => ['required'],
-            'fuel_consumption' => ['required'],
             'driver_id' => ['required'],
             'vehicle_id' => ['required'],
             'product_id' => ['required'],

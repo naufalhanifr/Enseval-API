@@ -20,7 +20,6 @@ class CreateDeliveryTable extends Migration
             $table->string('destination_location');
 
             $table->dateTime('date_pickup');
-            $table->float('fuel_consumption');
             $table->integer('cost');
 
             // $table->foreignId('source_warehouse')->constrained('warehouse')->cascadeOnUpdate()->cascadeOnDelete()->nullable(true);
