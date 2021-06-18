@@ -36,7 +36,7 @@
                         <select name="delivery_id" id="delivery_id" class="form-control">
                             <option value="">-- Pilih Lokasi Asal Product --</option>
                             @foreach($delivery->where('delivery_type' , '=' , 'Penjemputan') as $item)
-                            <option value=" {{ $item->id }}">{{ $item->pickup_location}}</option>
+                            <option value=" {{ $item->id }}">{{ $item->location}}</option>
                             @endforeach
                         </select>
                     </div>
